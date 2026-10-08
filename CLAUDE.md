@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## プロジェクトの状態
 
-カレンダー付き日記アプリ「cleandiary」。2026-10-08 に Vite + React（JavaScript）の雛形を作成した。開発は次の手順で進める（各ステップの終わりにコミットする）:
+カレンダー付き日記アプリ「cleandiary」。Vite + React（JavaScript）で作り、2026-10-08 に v1 の必須機能がすべてそろった。開発は次の手順で進めた（各ステップの終わりにコミットする）:
 
 0. 準備（雛形・テスト環境）← 完了
 1. 日付計算（`src/utils/`）と localStorage の読み書き（`src/storage/`）、およびそのテスト ← 完了
@@ -13,7 +13,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 4. 日記の表示と削除 ← 完了
 5. 日記の編集・保存・未保存の警告 ← 完了
 6. キーワード検索 ← 完了
-7. 仕上げ（見た目、手動確認、ビルド確認）
+7. 仕上げ（見た目、手動確認、ビルド確認）← 完了
 
 ユーザーへの回答は日本語で行う。
 
@@ -25,6 +25,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 - `npm run test:watch`: ファイルの変更を監視してテストを実行
 - `npm run lint`: lint（oxlint、設定は `.oxlintrc.json`）
 - `npm run build`: 本番用にビルド（`dist/` に出力）
+- `npm run preview`: ビルドしたものを起動して確認
 
 テストは対象ファイルの隣に `*.test.js(x)` として置く。共通の設定は `src/test/setup.js`（各テストの後に localStorage を空にする）。画面のテストは `src/test/renderWithRouter.jsx` で URL を指定して表示する。
 

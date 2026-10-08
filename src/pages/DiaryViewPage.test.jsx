@@ -47,7 +47,9 @@ describe('日記表示画面', () => {
 
     await user.click(screen.getByRole('button', { name: '削除する' }))
 
-    expect(confirm).toHaveBeenCalledOnce()
+    expect(confirm).toHaveBeenCalledWith(
+      '2026年10月8日（木）の日記を削除しますか？\nこの操作は元に戻せません。',
+    )
     expect(getDiary('2026-10-08')).toBeNull()
     expect(router.state.location.pathname).toBe('/')
     expect(router.state.location.search).toBe('?month=2026-10')

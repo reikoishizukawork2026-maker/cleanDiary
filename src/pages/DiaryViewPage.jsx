@@ -23,7 +23,7 @@ function DiaryViewPage() {
 
   function handleDelete() {
     // 消した日記は元に戻せないので、確認してから削除する
-    if (!window.confirm(`${formatDateJa(date)} の日記を削除しますか？\nこの操作は元に戻せません。`)) {
+    if (!window.confirm(`${formatDateJa(date)}の日記を削除しますか？\nこの操作は元に戻せません。`)) {
       return
     }
     deleteDiary(date)
