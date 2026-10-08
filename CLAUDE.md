@@ -21,7 +21,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 - `npm run dev`: 開発サーバーを起動（http://localhost:5173）
 - `npm test`: テストを 1 回実行（Vitest + React Testing Library、環境は jsdom）
-- `npm test -- src/App.test.jsx`: 1 ファイルだけテストを実行
+- `npm test -- src/routes.test.jsx`: 1 ファイルだけテストを実行
 - `npm run test:watch`: ファイルの変更を監視してテストを実行
 - `npm run lint`: lint（oxlint、設定は `.oxlintrc.json`）
 - `npm run build`: 本番用にビルド（`dist/` に出力）
