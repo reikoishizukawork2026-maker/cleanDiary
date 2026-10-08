@@ -15,6 +15,10 @@ main {
   padding: 16px;
 }
 
+h1 {
+  font-size: 1.5rem;
+}
+
 .app-header {
   border-bottom: 1px solid #ddd;
   background-color: #fff;
@@ -200,4 +204,51 @@ main {
 
 .diary-timestamps dd {
   margin: 0;
+}
+
+/* 日記の入力フォーム */
+
+.form-field {
+  margin-bottom: 16px;
+}
+
+.form-field label {
+  display: block;
+  margin-bottom: 4px;
+  font-weight: bold;
+}
+
+.form-field input,
+.form-field textarea {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font: inherit;
+}
+
+.form-field textarea {
+  resize: vertical;
+}
+
+.form-field [aria-invalid='true'] {
+  border-color: #dc2626;
+}
+
+.character-count {
+  margin: 4px 0 0;
+  font-size: 0.85rem;
+  color: #666;
+  text-align: right;
+}
+
+.character-count.is-over {
+  color: #dc2626;
+  font-weight: bold;
+}
+
+.error-message {
+  margin: 4px 0 0;
+  color: #dc2626;
 }

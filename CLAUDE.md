@@ -11,7 +11,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 2. React Router で 4 画面の切り替え ← 完了
 3. カレンダー画面 ← 完了
 4. 日記の表示と削除 ← 完了
-5. 日記の編集・保存・未保存の警告
+5. 日記の編集・保存・未保存の警告 ← 完了
 6. キーワード検索
 7. 仕上げ（見た目、手動確認、ビルド確認）
 
@@ -31,7 +31,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ## 構成
 
 - 言語は JavaScript（TypeScript は使わない）
-- `src/pages/`: 画面、`src/components/`: 部品、`src/storage/`: localStorage の読み書き、`src/utils/`: 日付の計算
+- `src/pages/`: 画面、`src/components/`: 部品、`src/hooks/`: カスタムフック、`src/storage/`: localStorage の読み書き、`src/utils/`: 日付の計算
 
 ## 要件定義
 
@@ -54,4 +54,5 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
   - サーバーを持たないため `createHashRouter` を使う（URL は `#/diary/...` の形）。未保存の警告で `useBlocker` を使うため、データルーター（`createHashRouter` + `RouterProvider`）にしている
 - 全画面に共通する枠（ヘッダー）は `src/components/Layout.jsx`
 - カレンダーの日付をクリックすると、日記があれば表示画面、なければ編集画面へ移る
-- 削除の確認は `window.confirm` を使う（テストでは `vi.spyOn(window, 'confirm')` で返り値を決める）
+- 未保存の警告は `src/hooks/useUnsavedChangesWarning.js`（アプリ内の移動は `useBlocker`、タブを閉じる・再読み込みは `beforeunload`）。保存後など警告せずに移るときは `navigate(url, { state: { skipUnsavedWarning: true } })`
+- 削除と未保存の確認は `window.confirm` を使う（テストでは `vi.spyOn(window, 'confirm')` で返り値を決める）
