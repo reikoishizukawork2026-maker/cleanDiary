@@ -63,3 +63,18 @@ export function getCalendarWeeks(year, month) {
   }
   return weeks
 }
+
+// 年月を「YYYY-MM」の文字列にする（カレンダーの URL「/?month=2026-10」に使う）
+export function toMonthKey(year, month) {
+  return `${year}-${pad2(month)}`
+}
+
+// 「YYYY-MM」を { year, month } にする。形式が正しくなければ null
+export function parseMonthKey(monthKey) {
+  const match = /^(\d{4})-(\d{2})$/.exec(monthKey ?? '')
+  if (!match) return null
+  const year = Number(match[1])
+  const month = Number(match[2])
+  if (month < 1 || month > 12) return null
+  return { year, month }
+}

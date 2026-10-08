@@ -12,7 +12,8 @@ function DiaryViewPage() {
           <Link to={`/diary/${date}/edit`}>編集する</Link>
         </li>
         <li>
-          <Link to="/">カレンダーに戻る</Link>
+          {/* この日記の月のカレンダーに戻る */}
+          <Link to={`/?month=${date.slice(0, 7)}`}>カレンダーに戻る</Link>
         </li>
       </ul>
     </section>

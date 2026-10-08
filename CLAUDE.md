@@ -9,7 +9,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 0. 準備（雛形・テスト環境）← 完了
 1. 日付計算（`src/utils/`）と localStorage の読み書き（`src/storage/`）、およびそのテスト ← 完了
 2. React Router で 4 画面の切り替え ← 完了
-3. カレンダー画面
+3. カレンダー画面 ← 完了
 4. 日記の表示と削除
 5. 日記の編集・保存・未保存の警告
 6. キーワード検索
@@ -50,6 +50,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 - v1 では作らない: 気分の記録、ダークモード、ログイン、複数ユーザー、写真の添付、他端末との同期
 - 学習用の題材なので、画面や部品（コンポーネント）ごとにファイルを分け、読みやすい構成にする
 - 画面の切り替えは React Router（`react-router` パッケージ）。URL と画面の対応は `src/routes.jsx` にまとめる
-  - `/` カレンダー、`/diary/:date` 日記表示、`/diary/:date/edit` 日記編集、`/search?q=` 検索結果（日付は `YYYY-MM-DD`）
+  - `/?month=YYYY-MM` カレンダー（month がなければ今月）、`/diary/:date` 日記表示、`/diary/:date/edit` 日記編集、`/search?q=` 検索結果（日付は `YYYY-MM-DD`）
   - サーバーを持たないため `createHashRouter` を使う（URL は `#/diary/...` の形）。未保存の警告で `useBlocker` を使うため、データルーター（`createHashRouter` + `RouterProvider`）にしている
 - 全画面に共通する枠（ヘッダー）は `src/components/Layout.jsx`
+- カレンダーの日付をクリックすると、日記があれば表示画面、なければ編集画面へ移る

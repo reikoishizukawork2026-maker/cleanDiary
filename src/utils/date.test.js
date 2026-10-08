@@ -3,8 +3,10 @@ import {
   getCalendarWeeks,
   isValidDateKey,
   parseDateKey,
+  parseMonthKey,
   shiftMonth,
   toDateKey,
+  toMonthKey,
   todayKey,
 } from './date.js'
 
@@ -91,5 +93,20 @@ describe('getCalendarWeeks', () => {
       .flat()
       .filter((d) => d.isCurrentMonth)
     expect(days).toHaveLength(29)
+  })
+})
+
+describe('toMonthKey / parseMonthKey', () => {
+  it('年月と「YYYY-MM」を相互に変換する', () => {
+    expect(toMonthKey(2026, 3)).toBe('2026-03')
+    expect(parseMonthKey('2026-03')).toEqual({ year: 2026, month: 3 })
+  })
+
+  it('形式が正しくなければ null', () => {
+    expect(parseMonthKey('2026-13')).toBeNull()
+    expect(parseMonthKey('2026-00')).toBeNull()
+    expect(parseMonthKey('2026-3')).toBeNull()
+    expect(parseMonthKey('')).toBeNull()
+    expect(parseMonthKey(null)).toBeNull()
   })
 })
