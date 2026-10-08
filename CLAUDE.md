@@ -8,7 +8,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 0. 準備（雛形・テスト環境）← 完了
 1. 日付計算（`src/utils/`）と localStorage の読み書き（`src/storage/`）、およびそのテスト ← 完了
-2. React Router で 4 画面の切り替え
+2. React Router で 4 画面の切り替え ← 完了
 3. カレンダー画面
 4. 日記の表示と削除
 5. 日記の編集・保存・未保存の警告
@@ -26,7 +26,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 - `npm run lint`: lint（oxlint、設定は `.oxlintrc.json`）
 - `npm run build`: 本番用にビルド（`dist/` に出力）
 
-テストは対象ファイルの隣に `*.test.js(x)` として置く。共通の設定は `src/test/setup.js`（各テストの後に localStorage を空にする）。
+テストは対象ファイルの隣に `*.test.js(x)` として置く。共通の設定は `src/test/setup.js`（各テストの後に localStorage を空にする）。画面のテストは `src/test/renderWithRouter.jsx` で URL を指定して表示する。
 
 ## 構成
 
@@ -49,3 +49,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 - v1 の必須機能: 月カレンダー、月の切り替え、記入済みの印、日記の作成・閲覧・編集・削除（削除は確認あり）、保存、未保存の警告、キーワード検索
 - v1 では作らない: 気分の記録、ダークモード、ログイン、複数ユーザー、写真の添付、他端末との同期
 - 学習用の題材なので、画面や部品（コンポーネント）ごとにファイルを分け、読みやすい構成にする
+- 画面の切り替えは React Router（`react-router` パッケージ）。URL と画面の対応は `src/routes.jsx` にまとめる
+  - `/` カレンダー、`/diary/:date` 日記表示、`/diary/:date/edit` 日記編集、`/search?q=` 検索結果（日付は `YYYY-MM-DD`）
+  - サーバーを持たないため `createHashRouter` を使う（URL は `#/diary/...` の形）。未保存の警告で `useBlocker` を使うため、データルーター（`createHashRouter` + `RouterProvider`）にしている
+- 全画面に共通する枠（ヘッダー）は `src/components/Layout.jsx`
