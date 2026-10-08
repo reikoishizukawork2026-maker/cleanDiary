@@ -7,7 +7,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 カレンダー付き日記アプリ「cleandiary」。2026-10-08 に Vite + React（JavaScript）の雛形を作成した。開発は次の手順で進める（各ステップの終わりにコミットする）:
 
 0. 準備（雛形・テスト環境）← 完了
-1. 日付計算（`src/utils/`）と localStorage の読み書き（`src/storage/`）、およびそのテスト
+1. 日付計算（`src/utils/`）と localStorage の読み書き（`src/storage/`）、およびそのテスト ← 完了
 2. React Router で 4 画面の切り替え
 3. カレンダー画面
 4. 日記の表示と削除
