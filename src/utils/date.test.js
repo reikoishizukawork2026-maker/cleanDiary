@@ -1,5 +1,7 @@
 import { afterEach, describe, expect, it, vi } from 'vitest'
 import {
+  formatDateJa,
+  formatDateTime,
   getCalendarWeeks,
   isValidDateKey,
   parseDateKey,
@@ -108,5 +110,19 @@ describe('toMonthKey / parseMonthKey', () => {
     expect(parseMonthKey('2026-3')).toBeNull()
     expect(parseMonthKey('')).toBeNull()
     expect(parseMonthKey(null)).toBeNull()
+  })
+})
+
+describe('formatDateJa', () => {
+  it('「2026年10月8日（木）」の形にする', () => {
+    expect(formatDateJa('2026-10-08')).toBe('2026年10月8日（木）')
+    expect(formatDateJa('2026-01-04')).toBe('2026年1月4日（日）')
+  })
+})
+
+describe('formatDateTime', () => {
+  it('「2026/10/08 14:05」の形にする（ブラウザのローカル時刻）', () => {
+    const iso = new Date(2026, 9, 8, 14, 5).toISOString()
+    expect(formatDateTime(iso)).toBe('2026/10/08 14:05')
   })
 })

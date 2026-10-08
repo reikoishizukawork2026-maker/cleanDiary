@@ -78,3 +78,19 @@ export function parseMonthKey(monthKey) {
   if (month < 1 || month > 12) return null
   return { year, month }
 }
+
+const WEEKDAY_NAMES = ['日', '月', '火', '水', '木', '金', '土']
+
+// 日付キーを「2026年10月8日（木）」の形にする（画面の見出しに使う）
+export function formatDateJa(dateKey) {
+  const date = parseDateKey(dateKey)
+  const weekday = WEEKDAY_NAMES[date.getDay()]
+  return `${date.getFullYear()}年${date.getMonth() + 1}月${date.getDate()}日（${weekday}）`
+}
+
+// 保存した日時（ISO 形式の文字列）を「2026/10/08 14:05」の形にする
+export function formatDateTime(isoString) {
+  const date = new Date(isoString)
+  const time = `${pad2(date.getHours())}:${pad2(date.getMinutes())}`
+  return `${toDateKey(date).replaceAll('-', '/')} ${time}`
+}

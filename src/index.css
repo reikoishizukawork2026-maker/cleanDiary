@@ -132,3 +132,72 @@ main {
   border-radius: 50%;
   background-color: #f59e0b;
 }
+
+/* ボタン（リンクにも使う） */
+
+.button {
+  display: inline-block;
+  padding: 6px 16px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background-color: #fff;
+  color: inherit;
+  font: inherit;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.button.primary {
+  border-color: #2563eb;
+  background-color: #2563eb;
+  color: #fff;
+}
+
+.button.danger {
+  border-color: #dc2626;
+  color: #dc2626;
+}
+
+.actions {
+  display: flex;
+  gap: 8px;
+  margin: 16px 0;
+}
+
+/* 日記の表示 */
+
+.diary-detail {
+  padding: 16px;
+  border: 1px solid #e3e3e3;
+  border-radius: 8px;
+  background-color: #fff;
+}
+
+.diary-title {
+  margin: 0 0 12px;
+  font-size: 1.2rem;
+}
+
+.diary-title.is-empty {
+  color: #888;
+  font-weight: normal;
+}
+
+.diary-body {
+  margin: 0;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+.diary-timestamps {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0 8px;
+  margin: 16px 0 0;
+  font-size: 0.85rem;
+  color: #666;
+}
+
+.diary-timestamps dd {
+  margin: 0;
+}

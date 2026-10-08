@@ -12,7 +12,7 @@ describe('画面の切り替え', () => {
 
   it('URL の日付で日記表示画面を開く', () => {
     renderWithRouter('/diary/2026-10-08')
-    expect(screen.getByRole('heading', { name: '2026-10-08 の日記' })).toBeInTheDocument()
+    expect(screen.getByRole('heading', { name: '2026年10月8日（木）' })).toBeInTheDocument()
   })
 
   it('URL の日付で日記編集画面を開く', () => {
@@ -38,7 +38,7 @@ describe('画面の切り替え', () => {
     renderWithRouter('/?month=2026-11')
 
     await user.click(screen.getByRole('link', { name: '2026-11-03（日記あり）' }))
-    expect(screen.getByRole('heading', { name: '2026-11-03 の日記' })).toBeInTheDocument()
+    expect(screen.getByRole('heading', { name: '2026年11月3日（火）' })).toBeInTheDocument()
 
     await user.click(screen.getByRole('link', { name: '編集する' }))
     expect(
